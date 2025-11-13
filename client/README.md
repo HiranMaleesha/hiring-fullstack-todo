@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# TODO App Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the React frontend for the TODO application, built with modern tools for a clean and responsive user interface.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+- **React 19** - Frontend framework
+- **Axios** - HTTP client for API requests
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ✅ View all TODO items in a clean list
+- ➕ Add new TODOs with title and optional description
+- ✏️ Edit existing TODOs inline
+- ✅ Toggle TODO completion status with checkboxes
+- ❌ Delete TODOs with confirmation
+- 🔄 Optimistic UI updates for smooth interactions
+- 📱 Responsive design
+- ⚠️ Error handling and loading states
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup Instructions
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14 or higher)
+- npm or yarn
+- Backend server running (see server README)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Navigate to the client directory:
+   ```bash
+   cd client
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Running the Application
 
-### `npm run eject`
+1. Start the development server:
+   ```bash
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The app will automatically reload when you make changes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Building for Production
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm run build
+```
 
-## Learn More
+This builds the app for production to the `build` folder.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+client/
+├── src/
+│   ├── components/
+│   │   ├── ui/           # UI components
+│   │   │   ├── button.js
+│   │   │   ├── input.js
+│   │   │   └── checkbox.js
+│   │   ├── TodoForm.js   # Form for adding todos
+│   │   ├── TodoItem.js   # Individual todo item
+│   │   └── TodoList.js   # List of todos
+│   ├── utils/
+│   │   └── cn.js         # Utility for class names
+│   ├── App.js            # Main app component
+│   └── index.js          # App entry point
+└── package.json
+```
 
-### Code Splitting
+## API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The frontend communicates with the backend via RESTful API endpoints:
 
-### Analyzing the Bundle Size
+- `GET /api/todos` - Fetch all todos
+- `POST /api/todos` - Create new todo
+- `PUT /api/todos/:id` - Update todo
+- `PATCH /api/todos/:id/done` - Toggle completion
+- `DELETE /api/todos/:id` - Delete todo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Assumptions and Limitations
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Assumes backend is running on `http://localhost:5000`
+- Uses optimistic updates; errors are handled gracefully
+- Form validation ensures title is required
+- No authentication implemented (as per requirements)

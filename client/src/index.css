@@ -1,3 +1,4 @@
+@import "tailwindcss";
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +6,146 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Basic styles for the TODO app */
+.app-container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 2rem 0;
+}
+
+.todo-container {
+  max-width: 32rem;
+  margin: 0 auto;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.todo-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.todo-form {
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+.btn-outline:hover {
+  background-color: #f3f4f6;
+}
+
+.btn-destructive {
+  background-color: #dc2626;
+  color: white;
+}
+
+.btn-destructive:hover {
+  background-color: #b91c1c;
+}
+
+.todo-item {
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  background-color: white;
+}
+
+.todo-item.completed {
+  background-color: #f9fafb;
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+.todo-item-content {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  margin-right: 0.5rem;
+}
+
+.todo-text {
+  flex: 1;
+}
+
+.todo-text h3 {
+  font-weight: 600;
+  margin: 0;
+}
+
+.todo-text p {
+  color: #6b7280;
+  margin: 0.25rem 0 0 0;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.error-message {
+  color: #dc2626;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.loading {
+  text-align: center;
 }
 
 code {
