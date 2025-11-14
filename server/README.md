@@ -101,10 +101,6 @@ PATCH /api/todos/:id/done
    ```bash
    npm run dev
    ```
-   Or for production:
-   ```bash
-   npm start
-   ```
 
 2. Server will run on `http://localhost:5000`
 

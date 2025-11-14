@@ -89,7 +89,7 @@ The frontend communicates with the backend via RESTful API endpoints:
 
 ## Assumptions and Limitations
 
-- Assumes backend is running on `http://localhost:5000`
+- backend is running on `http://localhost:5000`
 - Uses optimistic updates; errors are handled gracefully
 - Form validation ensures title is required
 - No authentication implemented (as per requirements)
