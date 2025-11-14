@@ -33,7 +33,7 @@ const TodoForm = ({ onAdd }) => {
           className="form-input"
         />
       </div>
-      <button type="submit" className="btn btn-primary">Add Todo</button>
+      <button type="submit" className="border-black">Add Todo</button>
     </form>
   );
 };
