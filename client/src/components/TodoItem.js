@@ -21,19 +21,20 @@ const TodoItem = ({ todo, onUpdate, onToggle, onDelete }) => {
   };
 
   return (
-    <div className={`todo-item ${todo.done ? 'completed' : ''}`}>
-      <div className="todo-item-content">
+    <div className={`bg-gray-50 border border-gray-200 rounded-lg p-4 mb-3 transition-all duration-200 hover:shadow-md ${todo.done ? 'opacity-60' : ''}`}>
+      <div className="flex items-start space-x-3">
         <Checkbox
           checked={todo.done}
           onCheckedChange={(checked) => onToggle(todo._id, checked)}
+          className="mt-1"
         />
         {isEditing ? (
-          <div className="flex-1">
+          <div className="flex-1 space-y-2">
             <Input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="mb-1"
               placeholder="Title"
+              className="text-lg font-medium"
             />
             <Input
               value={description}
@@ -42,21 +43,27 @@ const TodoItem = ({ todo, onUpdate, onToggle, onDelete }) => {
             />
           </div>
         ) : (
-          <div className="todo-text">
-            <h3>{todo.title}</h3>
-            {todo.description && <p>{todo.description}</p>}
+          <div className="flex-1">
+            <h3 className={`text-lg font-medium ${todo.done ? 'line-through text-gray-500' : 'text-gray-900'}`}>
+              {todo.title}
+            </h3>
+            {todo.description && (
+              <p className={`text-gray-600 mt-1 ${todo.done ? 'line-through' : ''}`}>
+                {todo.description}
+              </p>
+            )}
           </div>
         )}
-        <div className="todo-actions">
+        <div className="flex space-x-2">
           {isEditing ? (
             <>
-              <Button onClick={handleSave}>Save</Button>
-              <Button onClick={handleCancel} variant="outline">Cancel</Button>
+              <Button onClick={handleSave} size="sm">Save</Button>
+              <Button onClick={handleCancel} variant="outline" size="sm">Cancel</Button>
             </>
           ) : (
             <>
-              <Button onClick={() => setIsEditing(true)} variant="outline">Edit</Button>
-              <Button onClick={() => onDelete(todo._id)} variant="destructive">Delete</Button>
+              <Button onClick={() => setIsEditing(true)} variant="outline" size="sm">Edit</Button>
+              <Button onClick={() => onDelete(todo._id)} variant="destructive" size="sm">Delete</Button>
             </>
           )}
         </div>

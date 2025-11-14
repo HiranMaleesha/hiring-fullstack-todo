@@ -13,27 +13,32 @@ const TodoForm = ({ onAdd }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="todo-form">
-      <div className="form-group">
+    <form onSubmit={handleSubmit} className="mb-6 space-y-4">
+      <div>
         <input
           type="text"
-          placeholder="Todo title"
+          placeholder="What needs to be done?"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="form-input"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
           required
         />
       </div>
-      <div className="form-group">
+      <div>
         <input
           type="text"
           placeholder="Description (optional)"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="form-input"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
         />
       </div>
-      <button type="submit" className="border-black">Add Todo</button>
+      <button
+        type="submit"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      >
+        Add Todo
+      </button>
     </form>
   );
 };

@@ -79,16 +79,25 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <div className="todo-container">
-        <h1 className="todo-title">TODO App</h1>
-        {error && <p className="error-message">{error}</p>}
-        <TodoForm onAdd={addTodo} />
-        {loading ? (
-          <p className="loading">Loading todos...</p>
-        ) : (
-          <TodoList todos={todos} onUpdate={updateTodo} onToggle={toggleDone} onDelete={deleteTodo} />
-        )}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+      <div className="max-w-2xl mx-auto">
+        <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
+          <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">My Todo App</h1>
+          {error && (
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
+              {error}
+            </div>
+          )}
+          <TodoForm onAdd={addTodo} />
+          {loading ? (
+            <div className="text-center py-8">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+              <p className="text-gray-600 mt-2">Loading todos...</p>
+            </div>
+          ) : (
+            <TodoList todos={todos} onUpdate={updateTodo} onToggle={toggleDone} onDelete={deleteTodo} />
+          )}
+        </div>
       </div>
     </div>
   );
